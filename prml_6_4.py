@@ -10,60 +10,65 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def gaussKern(x1,x2):
+def gaussKern(x1, x2):
     beta = 10
-    ret = np.exp(-beta*(x1-x2)**2)
+    ret = np.exp(-beta * (x1 - x2)**2)
     return ret
 
-def expKern(x1,x2):
+
+def expKern(x1, x2):
     theta = 10
-    ret = np.exp(-theta*np.abs(x1-x2))
+    ret = np.exp(-theta * np.abs(x1 - x2))
     return ret
 
-def gramMat(x,kern):
+
+def gramMat(x, kern):
     size = x.shape[0]
-    ret = np.zeros([size,size])
+    ret = np.zeros([size, size])
     for i in range(size):
         for j in range(size):
-            ret[i,j] = kern(x[i],x[j])
-            
+            ret[i, j] = kern(x[i], x[j])
+
     return ret
+
 
 fig = plt.figure()
 
 dataS = 200
-x = np.linspace(-1,1,dataS)
+x = np.linspace(-1, 1, dataS)
 mu = np.zeros(dataS)
 
-#ガウスカーネル
+# ガウスカーネル
 np.random.seed(0)
 fig.add_subplot(211)
-K = gramMat(x,gaussKern)
+K = gramMat(x, gaussKern)
 for i in range(2):
-    y=np.random.multivariate_normal(mu,K)
-    plt.plot(x,y)
-    
-#tの事前分布
+    y = np.random.multivariate_normal(mu, K)
+    plt.plot(x, y)
+
+# tの事前分布
 beta = 10
 np.random.seed(0)
 fig.add_subplot(211)
-K = gramMat(x,gaussKern)
+K = gramMat(x, gaussKern)
 for i in range(2):
-    y=np.random.multivariate_normal(mu,K+np.eye(dataS)/beta)
-    plt.plot(x,y,'.',alpha = 0.5)
+    y = np.random.multivariate_normal(mu, K + np.eye(dataS) / beta)
+    plt.plot(x, y, '.', alpha=0.5)
 
-#指数カーネル   
+# 指数カーネル
 np.random.seed(0)
 fig.add_subplot(212)
-K = gramMat(x,expKern)
+K = gramMat(x, expKern)
 for i in range(2):
-    y=np.random.multivariate_normal(mu,K)
-    plt.plot(x,y)
+    y = np.random.multivariate_normal(mu, K)
+    plt.plot(x, y)
 
 beta = 100
 np.random.seed(0)
 fig.add_subplot(212)
-K = gramMat(x,expKern)
+K = gramMat(x, expKern)
 for i in range(2):
-    y=np.random.multivariate_normal(mu,K+np.eye(dataS)/beta)
-    plt.plot(x,y,'.',alpha=0.5)   
+    y = np.random.multivariate_normal(mu, K + np.eye(dataS) / beta)
+    plt.plot(x, y, '.', alpha=0.5)
+
+plt.show()
