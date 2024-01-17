@@ -26,9 +26,10 @@ x = np.cos(theta)
 y = np.sin(theta)
 z = von_mises(theta, theta0, m)
 
-plt.plot(theta, von_mises(theta, theta0, m))
 fig = plt.figure()
-ax = Axes3D(fig)
-ax.plot_wireframe(x, y, z)
+ax1 = fig.add_subplot(121)
+ax2 = fig.add_subplot(122,projection="3d")
+ax1.plot(theta, von_mises(theta, theta0, m))
+ax2.scatter(x, y, z)
 
 plt.show()

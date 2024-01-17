@@ -63,6 +63,5 @@ for M in [0, 1, 3, 9]:
     for i in range(plotS):
         Y[i] = w.dot(_phi(X[i], M))
     plt.plot(X, Y, 'r')
-plt.savefig("/Users/Narifumi/Desktop/test.png")
 
 plt.show()

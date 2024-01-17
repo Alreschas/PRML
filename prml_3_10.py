@@ -65,7 +65,8 @@ x2 = np.arange(-1, 1, 0.01)
 X1, X2, K = kern(x1, x2, M, beta)
 #plt.contourf(X1, X2, K,100)
 
-ax = Axes3D(plt.figure())
+fig = plt.figure()
+ax = fig.add_subplot(111,projection="3d")
 ax.plot_surface(X1, X2, K, cmap=cm.jet, rstride=5, cstride=5)
 
 plt.show()

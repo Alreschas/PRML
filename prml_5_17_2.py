@@ -113,7 +113,7 @@ def J_classification(param, *args):
         z_l2 = out_l2(z_l1, wl2)
         y = z_l2
         E += -(np.multiply(yt[n], np.log(y))).sum()
-    np.save('test.npy', w)
+    #np.save('test.npy', w)
     print(E)
     return E
 
@@ -181,8 +181,8 @@ N = 10
 N_in = 28 * 28  # 画像サイズ
 N_out = 10  # 出力クラス数
 N_hdn = 64  # 隠れ層
-# w=np.random.randn((N_in+1)*N_hdn+(N_hdn+1)*N_out)*np.sqrt(10)
-w = np.load('test.npy')
+w=np.random.randn((N_in+1)*N_hdn+(N_hdn+1)*N_out)*np.sqrt(10)
+#w = np.load('test.npy')
 
 idx = 0
 

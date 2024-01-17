@@ -41,7 +41,7 @@ xt = mu_r + np.random.randn(TN) * np.sqrt(sig2_r)
 x = np.arange(-1, 1, 0.01)
 plt.plot(x, gauss(x, 0, 0.1))
 
-plt.hist(xt, bins=10, normed=True, alpha=0.1)
+plt.hist(xt, bins=10, density=True, alpha=0.1)
 
 # muの推定 p(mu|x,sig2_r,mu_pr,sig2_pr)
 mu_N, sig2_N = bayse(xt[0:1], sig2_r, mu_pr, sig2_pr)

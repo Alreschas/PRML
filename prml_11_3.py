@@ -58,20 +58,20 @@ plt.xlim([0, xMax])
 x = np.linspace(0, xMax, 1000)
 lam = 1
 plt.plot(x, dist_exp(x, lam), 'r')
-plt.hist(rand_exp(N, lam), bins=bins, range=[0, 5 * xMax], normed=True, alpha=0.2)
+plt.hist(rand_exp(N, lam), bins=bins, range=[0, 5 * xMax], density=True, alpha=0.2)
 
 plt.subplot(2, 2, 2)
 plt.xlim([-xMax, xMax])
 x = np.linspace(-xMax, xMax, 1000)
 plt.plot(x, dist_cauchy(x), 'r')
-plt.hist(rand_cauchy(N), bins=bins, range=[-5 * xMax, 5 * xMax], normed=True, alpha=0.2)
+plt.hist(rand_cauchy(N), bins=bins, range=[-5 * xMax, 5 * xMax], density=True, alpha=0.2)
 
 plt.subplot(2, 2, 3)
 plt.xlim([-xMax, xMax])
 x = np.linspace(-xMax, xMax, 1000)
 y = rand_gauss(N)
 plt.plot(x, dist_gauss(x), 'r')
-plt.hist(y[0, :], bins=bins, range=[-5 * xMax, 5 * xMax], normed=True, alpha=0.2)
+plt.hist(y[0, :], bins=bins, range=[-5 * xMax, 5 * xMax], density=True, alpha=0.2)
 
 # plt.hist2d(y[0,:],y[1,:],bins=50)
 

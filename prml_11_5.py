@@ -60,11 +60,11 @@ plt.plot(z, distf_gam(z, a_gam, b_gam), color='magenta')
 plt.subplot(2, 2, 2)
 plt.xlim([zMin, zMax])
 plt.plot(z, distf_cauchy(z, b_cauchy, c_cauchy), color='green')
-plt.hist(rand_cauchy(N, b_cauchy, c_cauchy), range=(-50, 50), bins=2 * bins, normed=True, alpha=0.3, color='green')
+plt.hist(rand_cauchy(N, b_cauchy, c_cauchy), range=(-50, 50), bins=2 * bins, density=True, alpha=0.3, color='green')
 
 plt.subplot(2, 2, 4)
 plt.xlim([zMin, zMax])
 plt.plot(z, distf_gam(z, a_gam, b_gam), color='magenta')
-plt.hist(rand_gam(N, a_gam, b_gam, b_cauchy, c_cauchy, k), range=(0, 50), bins=bins, normed=True, alpha=0.3, color='magenta')
+plt.hist(rand_gam(N, a_gam, b_gam, b_cauchy, c_cauchy, k), range=(0, 50), bins=bins, density=True, alpha=0.3, color='magenta')
 
 plt.show()

@@ -85,7 +85,7 @@ cols = 2
 # ヒストグラム法
 plt.subplot(rows, cols, no)
 plt.plot(x, mixture_gauss_dist(x, pi, sig1, mu1, sig2, mu2))
-plt.hist(xt, normed=True, bins=30)
+plt.hist(xt, density=True, bins=30)
 no = no + 1
 
 # カーネル密度推定（超立方体カーネル）
